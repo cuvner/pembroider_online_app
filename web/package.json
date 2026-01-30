@@ -1,0 +1,12 @@
+
+{
+  "name": "pembroider-web",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "express": "^4",
+    "multer": "^1",
+    "uuid": "^9",
+    "sharp": "^0.33"
+  }
+}

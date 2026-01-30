@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<h2>PEmbroider</h2>
+<input type="file" id="files" multiple accept="image/png"><br>
+<button id="go">Generate</button>
+<pre id="log"></pre>
+<script>
+const ACCESS_KEY = prompt("Class access key:");
+document.getElementById("go").onclick = async ()=>{
+  const fd = new FormData();
+  for(const f of files.files) fd.append("files",f);
+  fd.append("spec", JSON.stringify({layers:[]}));
+  const r = await fetch("/api/jobs",{method:"POST",body:fd,headers:{"x-access-key":ACCESS_KEY}});
+  const j = await r.json();
+  log.textContent = JSON.stringify(j,null,2);
+};
+</script>
+</body>
+</html>
